@@ -7,17 +7,19 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour
 {
     [SerializeField] TMP_Text text;
-    float score = 300;
+    public float score = 0;
 
     void Start()
     {
-        text.text = "Score: ";
+        text.text = "Score: " + score;
     }
-    private void OnCollisonEnter(Collision collision)
+
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Target")
         {
-            text.text += score;
+            score = score + 300;
+            text.text = "Score: " + score;
         }
     }
 }
