@@ -2,13 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Android;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class Launcher : MonoBehaviour {
+
     private GameObject pinball;
 
-    public void launch() {
+    [SerializeField] private Options powervalue;
+    private float power;
+
+    private void Start()
+    {
         pinball = GameObject.Find("Pinball");
-        pinball.GetComponent<Rigidbody>().AddForce(Vector3.up * 1000f);
+    }
+
+    public void launch() {
+        power = powervalue.power;
+        pinball.GetComponent<Rigidbody>().AddForce(Vector3.up * power);
     }
 }
