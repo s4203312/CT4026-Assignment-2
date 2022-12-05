@@ -8,7 +8,6 @@ public class TouchInputs : MonoBehaviour
     //
     // Attach to an origin based cube.
     // A screen touch moves the cube on an iPhone or iPad.
-    // A second screen touch reduces the cube size.
 
     private Vector3 position;
     private float width;

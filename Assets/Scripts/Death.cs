@@ -1,24 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Death : MonoBehaviour
 {
     GameObject pinball;
 
-    public UnityEvent DeathBox;
-
-    private void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    void death()
-    {
-        pinball = GameObject.Find("Pinball");
-        Destroy(pinball);
-        //Mabye add sound
-        Instantiate(pinball, new Vector3(3.4f, -4.5f, 6.9f), Quaternion.identity);
+        if (other.tag == "Pinball")
+        {
+            pinball = GameObject.Find("Pinball");
+            pinball.transform.position = new Vector3(3.4f, -4.5f, 6.9f);
+            //Mabye add sound
+        }
     }
 }

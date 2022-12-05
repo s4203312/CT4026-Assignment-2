@@ -8,7 +8,6 @@ public class Options : MonoBehaviour
 {
     float masterAudio;
     [SerializeField]  private AudioSource[] speakers;       //A list of the audio sources in the scene
-    [SerializeField] public float power;
 
     private void Awake()
     {
@@ -42,10 +41,5 @@ public class Options : MonoBehaviour
         {
             speaker.volume = volume;
         }
-    }
-    public void PowerSliderValueUpdate(Slider slider)
-    {
-        power = slider.value;
-        SetFloat("power", power);        //Setting the player preferances for the power
     }
 }

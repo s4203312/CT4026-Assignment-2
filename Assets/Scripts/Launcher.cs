@@ -7,9 +7,8 @@ using UnityEngine.UI;
 public class Launcher : MonoBehaviour {
 
     private GameObject pinball;
-
-    [SerializeField] private Options powervalue;
-    private float power;
+    [SerializeField] public float power;
+    [SerializeField] public Slider slider;
 
     private void Start()
     {
@@ -17,7 +16,11 @@ public class Launcher : MonoBehaviour {
     }
 
     public void launch() {
-        power = powervalue.power;
         pinball.GetComponent<Rigidbody>().AddForce(Vector3.up * power);
+    }
+
+    public void Update()
+    {
+        power = slider.value;
     }
 }
