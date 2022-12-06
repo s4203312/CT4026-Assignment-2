@@ -10,14 +10,16 @@ public class Death : MonoBehaviour {
     [SerializeField] TMP_Text text;
     private int i = 1;
     GameObject LivesOBJ;
+    [SerializeField] private Button launcher;
 
     void OnTriggerEnter(Collider other) {
         if (lives != 0) {
             if (other.tag == "Pinball") {
                 pinball = GameObject.Find("Pinball");
                 pinball.transform.position = new Vector3(3.4f, -4.5f, 6.9f);
+                launcher.enabled = true;
                 //Mabye add sound
-                
+
                 lives -= 1;
                 LivesOBJ = GameObject.Find("Lives" + i);
                 i++;
