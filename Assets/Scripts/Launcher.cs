@@ -10,8 +10,7 @@ public class Launcher : MonoBehaviour {
     [SerializeField] public float power;
     [SerializeField] public Slider slider;
 
-    private void Start()
-    {
+    private void Start() {
         pinball = GameObject.Find("Pinball");
     }
 
@@ -19,8 +18,7 @@ public class Launcher : MonoBehaviour {
         pinball.GetComponent<Rigidbody>().AddForce(Vector3.up * power);
     }
 
-    public void Update()
-    {
+    public void Update() {
         power = slider.value;
     }
 }

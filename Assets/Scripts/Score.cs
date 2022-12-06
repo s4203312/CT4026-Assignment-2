@@ -4,20 +4,16 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class Score : MonoBehaviour
-{
+public class Score : MonoBehaviour {
     [SerializeField] TMP_Text text;
-    public float score = 0;
+    static public float score = 0;
 
-    void Start()
-    {
+    void Start() {
         text.text = "Score: " + score;
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Target")
-        {
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.tag == "Target") {
             score = score + 300;
             text.text = "Score: " + score;
         }
