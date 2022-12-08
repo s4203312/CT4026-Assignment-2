@@ -8,6 +8,7 @@ public class Death : MonoBehaviour {
     GameObject pinball;
     public int lives = 3;
     [SerializeField] TMP_Text text;
+    [SerializeField] Button button;
     private int i = 1;
     GameObject LivesOBJ;
     [SerializeField] private Button launcher;
@@ -28,6 +29,8 @@ public class Death : MonoBehaviour {
         }
         else {
             text.text = "Your out of pinballs. Final Score was: " + Score.score;
+            Score.score = 0;
+            button.gameObject.SetActive(true);
         }
     }
 }
