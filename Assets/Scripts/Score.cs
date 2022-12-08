@@ -17,5 +17,13 @@ public class Score : MonoBehaviour {
             score = score + 300;
             text.text = "Score: " + score;
         }
+        else if (collision.gameObject.tag == "Target1") {
+            score = score + 600;
+            text.text = "Score: " + score;
+        }
+        else if (collision.gameObject.tag == "Target2") {
+            score = score - 100;
+            text.text = "Score: " + score;
+        }
     }
 }
