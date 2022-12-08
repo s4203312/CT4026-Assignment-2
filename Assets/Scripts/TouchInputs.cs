@@ -16,9 +16,6 @@ public class TouchInputs : MonoBehaviour
     void Awake() {
         width = (float)Screen.width / 2.0f;
         height = (float)Screen.height / 2.0f;
-
-        // Position used for the cube.
-        position = new Vector3(0.0f, 0.0f, 0.0f);
     }
 
     void Update() {
@@ -33,8 +30,7 @@ public class TouchInputs : MonoBehaviour
                 pos.y = (pos.y - height) / height;
                 position = new Vector3(-pos.x, pos.y, 0.0f);
 
-                // Position the cube.
-                transform.position = position;
+                Application.Quit();
             }
         }
     }
