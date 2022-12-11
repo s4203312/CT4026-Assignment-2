@@ -7,7 +7,7 @@ public class LauncherReset : MonoBehaviour {
     
     [SerializeField] private Button launcher;
 
-    void OnTriggerEnter(Collider other) {
+    void OnTriggerEnter(Collider other) {       //Checking the pinball has made it into the playable area
         if (other.tag == "Pinball") {
             launcher.enabled = false;
         }

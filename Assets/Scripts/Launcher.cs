@@ -15,10 +15,10 @@ public class Launcher : MonoBehaviour {
     }
 
     public void launch() {
-        pinball.GetComponent<Rigidbody>().AddForce(Vector3.up * power);
+        pinball.GetComponent<Rigidbody>().AddForce(Vector3.up * power); //Applying upward force to the pinball
     }
 
     public void Update() {
-        power = slider.value;
+        power = slider.value;       //Updating the power of the launcher
     }
 }
