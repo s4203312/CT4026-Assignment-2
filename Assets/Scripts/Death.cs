@@ -12,6 +12,7 @@ public class Death : MonoBehaviour {
     private int i = 1;
     GameObject LivesOBJ;
     [SerializeField] private Button launcher;
+    [SerializeField] private GameObject particles;
 
     void OnTriggerEnter(Collider other) {           //Checking a collison has occured with the death box
         if (lives != 0) {
@@ -19,7 +20,9 @@ public class Death : MonoBehaviour {
                 pinball = GameObject.Find("Pinball");
                 pinball.transform.position = new Vector3(3.4f, -4.5f, 6.9f);        //Putting the pinball back in the launcher
                 launcher.enabled = true;                                            //Enabling the launcher
-                transform.GetComponent<AudioSource>().Play();                       //PLaying a death sound cue
+                transform.GetComponent<AudioSource>().Play();                       //Playing a death sound cue
+                GameObject clone = Instantiate(particles, transform.position, transform.rotation);      //Making particles
+                Destroy(clone, 1f);
 
                 lives -= 1;                                     //Removing one of the players lives
                 LivesOBJ = GameObject.Find("Lives" + i);
